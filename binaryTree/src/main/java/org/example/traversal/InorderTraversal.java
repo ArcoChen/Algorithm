@@ -1,4 +1,4 @@
-package org.example.recursion;
+package org.example.traversal;
 
 import java.util.ArrayList;
 import java.util.List;
