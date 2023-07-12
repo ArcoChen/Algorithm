@@ -1,6 +1,7 @@
 package org.example.traversal;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 import org.example.TreeNode;
@@ -108,6 +109,30 @@ public class PostorderTraversal {
                 root = root.getRight();
             }
         }
+        return list;
+    }
+
+    public static List<Integer> preorderTraversal2(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            list.add(node.getVal());
+            if (node.getLeft() != null) {
+                stack.push(node.getLeft());
+            }
+            if (node.getRight() != null) {
+                stack.push(node.getRight());
+            }
+        }
+
+        // 翻转list
+        Collections.reverse(list);
         return list;
     }
 }
