@@ -1,5 +1,9 @@
 package org.example;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * leetcode 116 填充每个节点的下一个右侧节点指针
  *
@@ -23,7 +27,60 @@ public class PopulatingNextRightPointers {
      * 输入：root = [] 输出：[]
      */
 
-    public Node connect(Node root) {
+    /**
+     * 思考
+     * <p>
+     * 层序遍历，在单层遍历的时候记录一下本层的头部节点，然后在遍历的时候让前一个节点指向本节点就可以了
+     */
+
+    public static void main(String[] args) {
+        Node root = new Node(6);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        node3.left = node1;
+        node3.right = node2;
+        root.left = node3;
+        root.right = node4;
+
+        Node result = connect(root);
+        System.out.println("1");
+    }
+
+    public static Node connect(Node root) {
+        if (root == null) {
+            return root;
+        }
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (queue.size() != 0) {
+            int size = queue.size();
+
+            Node item = queue.poll();
+            if (item.left != null) {
+                queue.offer(item.left);
+            }
+            if (item.right != null) {
+                queue.offer(item.right);
+            }
+
+            for (int index = 1; index < size; index++) {
+                Node next = queue.poll();
+                if (next.left != null) {
+                    queue.offer(next.left);
+                }
+                if (next.right != null) {
+                    queue.offer(next.right);
+                }
+
+                item.next = next;
+                item = next;
+            }
+        }
+
         return root;
     }
 

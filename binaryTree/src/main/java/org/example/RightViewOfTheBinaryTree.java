@@ -8,6 +8,8 @@ import java.util.Queue;
 /**
  * leetcode 199 二叉树的右视图
  *
+ * <a href="https://leetcode.cn/problems/binary-tree-right-side-view/"></a>
+ *
  * @author huangjiachang
  * @date 2023/7/13
  */
