@@ -14,6 +14,7 @@
     <module>linkedList</module>
     <module>string</module>
     <module>binaryTree</module>
+    <module>backtracking</module>
   </modules>
 
   <properties>
