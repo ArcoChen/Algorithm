@@ -24,7 +24,7 @@ public class removeBackwardNode {
     /**
      * 思考
      * <p>
-     * 1. 先计算数组的长度，再遍历链表，但遍历元素达到size-index时，说明已经遇到需要删除的元素，将node的next指向node.next.next
+     * 1. 先计算数组的长度，再遍历链表，当遍历元素达到size-index时，说明已经遇到需要删除的元素，将node的next指向node.next.next
      * <p>
      * 2. 双指针法，定义一个快指针，一个慢指针
      * <p>
